@@ -5,7 +5,7 @@ import javax.faces.bean.RequestScoped;
 
 @ManagedBean(name = "brewLogEntry")
 @RequestScoped
-public class BrewLogEntry {
+public class BrewLogEntryModel {
 
 	private String text;
 

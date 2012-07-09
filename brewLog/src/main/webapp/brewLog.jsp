@@ -15,7 +15,9 @@
 			<h:outputLabel for="name">Name: </h:outputLabel>
 			<h:inputText id="name" value="#{BrewLog.name }" required="true" />
 			<h:commandButton action="#{brewLogController.create }"
-				value="Create Log" />
+				value="Create Log">
+				<f:attribute name="model" value="#{BrewLog }" />
+			</h:commandButton>
 			<h:messages showDetail="true" showSummary="false" />
 		</h:form>
 	</f:view>

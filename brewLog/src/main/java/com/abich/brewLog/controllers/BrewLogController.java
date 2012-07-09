@@ -1,22 +1,23 @@
 package com.abich.brewLog.controllers;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-import com.abich.brewLog.beans.BrewLog;
-import com.abich.brewLog.beans.BrewLogEntry;
+import com.abich.brewLog.beans.BrewLogModel;
+import com.abich.brewLog.orm.BrewLog;
+import com.abich.brewLog.orm.BrewLogEntryDAO;
 
-@ManagedBean
-@RequestScoped
+@Controller
 public class BrewLogController {
-	@ManagedProperty("#{BrewLog}")
-	BrewLog brewLog;
 
-	@ManagedProperty("#{brewLogEntry}")
-	BrewLogEntry brewLogEntry;
+	@Autowired
+	private BrewLogEntryDAO entryDAO;
+	private BrewLogModel model;
 
 	public String create() {
+		BrewLog brewLog = new BrewLog();
+		brewLog.setName(model.getName());
+		entryDAO.addLog(brewLog);
 		return "success";
 	}
 
@@ -26,5 +27,13 @@ public class BrewLogController {
 
 	public String addLogEntry() {
 		return "success";
+	}
+
+	public BrewLogModel getModel() {
+		return model;
+	}
+
+	public void setModel(BrewLogModel model) {
+		this.model = model;
 	}
 }

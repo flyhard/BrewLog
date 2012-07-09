@@ -67,19 +67,29 @@
 		<param-name>org.apache.myfaces.COMPRESS_STATE_IN_SESSION</param-name>
 		<param-value>false</param-value>
 	</context-param>
-	<context-param>
-		<description>Defines which packages to scan for beans, separated by commas.
-        Useful for when using maven and jetty:run (version 6) or tomcat:run
-        </description>
-		<param-name>org.apache.myfaces.annotation.SCAN_PACKAGES</param-name>
-		<param-value>com.abich.brewLog</param-value>
-	</context-param>
+<!-- 	<context-param> -->
+<!-- 		<description>Defines which packages to scan for beans, separated by commas. -->
+<!--         Useful for when using maven and jetty:run (version 6) or tomcat:run -->
+<!--         </description> -->
+<!-- 		<param-name>org.apache.myfaces.annotation.SCAN_PACKAGES</param-name> -->
+<!-- 		<param-value>com.abich.brewLog</param-value> -->
+<!-- 	</context-param> -->
 
 	<!-- To disable encryption -->
 	<context-param>
 		<param-name>org.apache.myfaces.USE_ENCRYPTION</param-name>
 		<param-value>false</param-value>
 	</context-param>
+
+
+
+	<!-- Bootstraps the root web application context before servlet initialization -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
 
 
 	<!-- Faces Servlet -->

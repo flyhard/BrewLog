@@ -8,9 +8,9 @@ import javax.faces.bean.RequestScoped;
 
 @ManagedBean(name = "BrewLog")
 @RequestScoped
-public class BrewLog {
+public class BrewLogModel {
 	private String name;
-	private List<BrewLogEntry> logEntries = new ArrayList<>();
+	private List<BrewLogEntryModel> logEntries = new ArrayList<>();
 
 	public String getName() {
 		return name;
@@ -20,11 +20,11 @@ public class BrewLog {
 		this.name = name;
 	}
 
-	public List<BrewLogEntry> getLogEntries() {
+	public List<BrewLogEntryModel> getLogEntries() {
 		return logEntries;
 	}
 
-	public void setLogEntries(List<BrewLogEntry> logEntries) {
+	public void setLogEntries(List<BrewLogEntryModel> logEntries) {
 		this.logEntries = logEntries;
 	}
 
